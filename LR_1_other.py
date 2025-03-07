@@ -46,9 +46,9 @@ def bi_find(target, input_list):
     return element
 
 longer=99
-for item in range(longer):
-    f_1=bi_find(item,list(range(longer)))
-    f_2=list(range(longer)).index(item)
+for item in range(1,longer,3):
+    f_1=bi_find(item,list(range(1,longer,3)))
+    f_2=list(range(1,longer,3)).index(item)
     if f_1==f_2:
         print(f"Верно для: {f_1}")
     else:
@@ -62,22 +62,22 @@ del longer, item, f_1, f_2
 в верхнем и нижнем регистре и одну цифру."""
 
 def password_check (password:str):
-    lower_flag=False
-    upper_flag=False
-    digit_flag=False
+    flag=set()
     for item in password:
         if item.islower():
-            lower_flag=True
+            flag.add("lower_flag")
         elif item.isupper():
-            upper_flag=True
+            flag.add("upper_flag")
         elif item.isdigit():
-            digit_flag=True
-    if len(password)>7 and (lower_flag*upper_flag*digit_flag):
+            flag.add("digit_flag")
+    if len(password)>7 and len(flag)>2:
         print("Пароль надежен.")
     else:
         print("Введите другой пароль.")
         password_check(input())
 
 password_check(input("Введите пароль."))
-            
-            
+
+
+# Пункт 3.3
+"""Задать произвольный словарь из целых чисел, отсортировать его и вывести ключи."""
