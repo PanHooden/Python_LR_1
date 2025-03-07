@@ -55,5 +55,29 @@ for item in range(longer):
         print(f"Неверно для: {f_1}")
 del longer, item, f_1, f_2
 
-# Пункт 2.4
-"""Написать функцию, которая проверяет введенный пароль на надежность. Ввод пароля осуществляется пользователем с клавиатуры. Надежный пароль должен состоять минимум из 8 символов и включать буквы в верхнем и нижнем регистре и одну цифру."""
+# Пункт 2.7
+"""Написать функцию, которая проверяет введенный пароль на надежность.
+Ввод пароля осуществляется пользователем с клавиатуры.
+Надежный пароль должен состоять минимум из 8 символов и включать буквы
+в верхнем и нижнем регистре и одну цифру."""
+
+def password_check (password:str):
+    lower_flag=False
+    upper_flag=False
+    digit_flag=False
+    for item in password:
+        if item.islower():
+            lower_flag=True
+        elif item.isupper():
+            upper_flag=True
+        elif item.isdigit():
+            digit_flag=True
+    if len(password)>7 and (lower_flag*upper_flag*digit_flag):
+        print("Пароль надежен.")
+    else:
+        print("Введите другой пароль.")
+        password_check(input())
+
+password_check(input("Введите пароль."))
+            
+            
